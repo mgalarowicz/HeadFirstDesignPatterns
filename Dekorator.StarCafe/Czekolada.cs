@@ -18,6 +18,11 @@ namespace Dekorator.StarCafe
             return napój.PobierzOpis() + ", Czekolada";
         }
 
+        public override Wielkość PobierzWielkość()
+        {
+            return napój.PobierzWielkość();
+        }
+
         public override double Koszt()
         {
             return napój.Koszt() + 0.20;

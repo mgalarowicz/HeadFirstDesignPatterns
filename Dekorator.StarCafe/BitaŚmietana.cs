@@ -17,6 +17,11 @@ namespace Dekorator.StarCafe
             return napój.PobierzOpis() + ", Bita Śmietana";
         }
 
+        public override Wielkość PobierzWielkość()
+        {
+            return napój.PobierzWielkość();
+        }
+
         public override double Koszt()
         {
             return napój.Koszt() + 0.1;

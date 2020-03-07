@@ -20,6 +20,13 @@ namespace Dekorator.StarCafe
             napój3 = new Czekolada(napój3);
             napój3 = new BitaŚmietana(napój3);
             Console.WriteLine(napój3.PobierzOpis() + " " + napój3.Koszt() + " zł");
+
+            Napój napój4 = new StarCafeSpecial();
+            napój4.UstawWielkość(Wielkość.Średnia);
+            napój4 = new MleczkoSojowe(napój4);
+            napój4 = new Czekolada(napój4);
+            napój4 = new BitaŚmietana(napój4);
+            Console.WriteLine(napój4.PobierzOpis() + " " + napój4.Koszt() + " zł");
         }
     }
 }

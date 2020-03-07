@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Dekorator.StarCafe
@@ -18,9 +19,33 @@ namespace Dekorator.StarCafe
             return napój.PobierzOpis() + ", Mleczko Sojowe";
         }
 
+        public override Wielkość PobierzWielkość()
+        {
+            return napój.PobierzWielkość();
+        }
+
+
         public override double Koszt()
         {
-            return napój.Koszt() + 0.15;
+            double kosztDodatku;
+            
+            switch (PobierzWielkość())
+            {
+                case Wielkość.Mała:
+                    kosztDodatku = 0.10;
+                    break;
+                case Wielkość.Średnia:
+                    kosztDodatku = 0.15;
+                    break;
+                case Wielkość.Duża:
+                    kosztDodatku = 0.20;
+                    break;
+                default:
+                    kosztDodatku = 0.15;
+                    break;
+            }
+
+            return napój.Koszt() + kosztDodatku;
         }
     }
 }

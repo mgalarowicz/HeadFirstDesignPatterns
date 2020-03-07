@@ -8,7 +8,7 @@ namespace Dekorator.StarCafe
     {
         public Bezkofeinowa()
         {
-            opis = "Kawa Bezkofeinowa";
+            opis = $"Kawa Bezkofeinowa";
         }
 
         public override double Koszt()

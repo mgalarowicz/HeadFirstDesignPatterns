@@ -8,7 +8,7 @@ namespace Dekorator.StarCafe
     {
         public StarCafeSpecial()
         {
-            opis = "Kawa Star Cafe Special";
+            opis = $"Kawa Star Cafe Special";
         }
 
         public override double Koszt()
