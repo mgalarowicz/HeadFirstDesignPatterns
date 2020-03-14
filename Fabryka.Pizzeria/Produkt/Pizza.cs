@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Fabryka.Pizzeria
 {
-    public class Pizza
+    public abstract class Pizza
     {
         protected string nazwa;
         protected string ciasto;
