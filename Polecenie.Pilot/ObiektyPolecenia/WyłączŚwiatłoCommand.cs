@@ -18,5 +18,10 @@ namespace Polecenie.Pilot.ObiektyPolecenia
         {
             _światło.Wyłącz();
         }
+
+        public void Undo()
+        {
+            _światło.Włącz();
+        }
     }
 }

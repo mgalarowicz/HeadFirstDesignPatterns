@@ -7,5 +7,6 @@ namespace Polecenie.Pilot
     public interface ICommand
     {
         void Execute();
+        void Undo();
     }
 }

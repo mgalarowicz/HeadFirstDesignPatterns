@@ -18,5 +18,7 @@ namespace Polecenie.Pilot.ObiektyPolecenia
         {
             _drzwiGarażowe.DoGóry();
         }
+
+        public void Undo() { }
     }
 }

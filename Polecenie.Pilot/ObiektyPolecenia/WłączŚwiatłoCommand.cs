@@ -19,5 +19,10 @@ namespace Polecenie.Pilot
         {
             _światło.Włącz();
         }
+
+        public void Undo()
+        {
+            _światło.Wyłącz();
+        }
     }
 }

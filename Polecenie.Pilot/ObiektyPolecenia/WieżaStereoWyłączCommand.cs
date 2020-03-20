@@ -18,5 +18,7 @@ namespace Polecenie.Pilot.ObiektyPolecenia
         {
             _wieżaStereo.Wyłącz();
         }
+
+        public void Undo() { }
     }
 }

@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Polecenie.Pilot.ObiektyRealizujace;
+﻿using Polecenie.Pilot.ObiektyRealizujace;
 
 namespace Polecenie.Pilot.ObiektyPolecenia
 {
-    public class WyłączWentylatorSufitowyCommand : ICommand
+    public class WłączWentylatorSufitowyWolnoCommand : ICommand
     {
-        private readonly WentylatorSufitowy _wentylatorSufitowy;
         private Obroty _previousSpeed;
 
-        public WyłączWentylatorSufitowyCommand(WentylatorSufitowy wentylatorSufitowy)
+        private readonly WentylatorSufitowy _wentylatorSufitowy;
+
+        public WłączWentylatorSufitowyWolnoCommand(WentylatorSufitowy wentylatorSufitowy)
         {
             _wentylatorSufitowy = wentylatorSufitowy;
         }
@@ -18,7 +16,7 @@ namespace Polecenie.Pilot.ObiektyPolecenia
         public void Execute()
         {
             _previousSpeed = _wentylatorSufitowy.PobierzPrędkość();
-            _wentylatorSufitowy.Wyłącz();
+            _wentylatorSufitowy.NiskieObroty();
         }
 
         public void Undo()

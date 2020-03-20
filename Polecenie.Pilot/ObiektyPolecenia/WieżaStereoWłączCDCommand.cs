@@ -20,5 +20,7 @@ namespace Polecenie.Pilot.ObiektyPolecenia
             _wieżaStereo.UstawCD();
             _wieżaStereo.UstawGłośność(11);
         }
+
+        public void Undo() { }
     }
 }
