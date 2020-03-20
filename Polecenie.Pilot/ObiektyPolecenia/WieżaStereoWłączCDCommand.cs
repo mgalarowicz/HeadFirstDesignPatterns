@@ -21,6 +21,9 @@ namespace Polecenie.Pilot.ObiektyPolecenia
             _wieżaStereo.UstawGłośność(11);
         }
 
-        public void Undo() { }
+        public void Undo()
+        {
+            _wieżaStereo.Wyłącz();
+        }
     }
 }

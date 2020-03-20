@@ -9,44 +9,79 @@ namespace Polecenie.Pilot
     {
         static void Main(string[] args)
         {
-
             SuperPilotZWycofaniem pilot = new SuperPilotZWycofaniem();
 
-            WentylatorSufitowy wentylatorSufitowy = new WentylatorSufitowy("Jadalnia");
-            Światło światłoJadalnia = new Światło("Jadalnia");
+            Światło światło = new Światło("Salon");
+            TV tv = new TV("Salon");
+            WieżaStereo wieżaStereo = new WieżaStereo("Salon");
+            Jacuzzi jacuzzi = new Jacuzzi();
 
-            WłączWentylatorSufitowyŚrednioCommand wentylatorSufitowyŚrednio = new WłączWentylatorSufitowyŚrednioCommand(wentylatorSufitowy);
-            WłączWentylatorSufitowySzybkoCommand wentylatorSufitowySzybko = new WłączWentylatorSufitowySzybkoCommand(wentylatorSufitowy);
-            WyłączWentylatorSufitowyCommand wyłączWentylatorSufitowy = new WyłączWentylatorSufitowyCommand(wentylatorSufitowy);
-            WłączŚwiatłoCommand włączŚwiatło = new WłączŚwiatłoCommand(światłoJadalnia);
-            WyłączŚwiatłoCommand wyłączŚwiatło = new WyłączŚwiatłoCommand(światłoJadalnia);
+            WłączŚwiatłoCommand włączŚwiatło = new WłączŚwiatłoCommand(światło);
+            WieżaStereoWłączCDCommand włączWieżaStero = new WieżaStereoWłączCDCommand(wieżaStereo);
+            WłączTVCommand włączTV = new WłączTVCommand(tv);
+            WłączJacuzziCommand włączJacuzzi = new WłączJacuzziCommand(jacuzzi);
 
-            pilot.UstawPolecenie(0, wentylatorSufitowyŚrednio, wyłączWentylatorSufitowy);
-            pilot.UstawPolecenie(1, wentylatorSufitowySzybko, wyłączWentylatorSufitowy);
-            pilot.UstawPolecenie(2, włączŚwiatło, wyłączŚwiatło);
 
+            WyłączŚwiatłoCommand wyłączŚwiatło = new WyłączŚwiatłoCommand(światło);
+            WieżaStereoWyłączCommand wyłączWieżaStero = new WieżaStereoWyłączCommand(wieżaStereo);
+            WyłączTVCommand wyłączTV = new WyłączTVCommand(tv);
+            WyłączJacuzziCommand wyłączJacuzzi = new WyłączJacuzziCommand(jacuzzi);
+
+            ICommand[] włączImprezę = new ICommand[] {włączŚwiatło, włączWieżaStero, włączTV, włączJacuzzi}; 
+            ICommand[] wyłączImprezę = new ICommand[] {wyłączŚwiatło, wyłączWieżaStero, wyłączTV, wyłączJacuzzi};
+            
+            MakroCommand makroWłączImprezę = new MakroCommand(włączImprezę);
+            MakroCommand makroWyłączImprezę = new MakroCommand(wyłączImprezę);
+
+            pilot.UstawPolecenie(0, makroWłączImprezę, makroWyłączImprezę);
+
+            Console.WriteLine(pilot);
+            Console.WriteLine("----- Włączamy MakroPolecenie -----");
             pilot.WciśniętoPrzyciskWłącz(0);
+            Console.WriteLine("----- Wyłączamy MakroPolecenie -----");
             pilot.WciśniętoPrzyciskWyłącz(0);
-            Console.WriteLine(pilot);
+            Console.WriteLine("----- A jednak impreza trwa nadal! -----");
             pilot.WciśniętoPrzyciskWycofaj();
 
-            pilot.WciśniętoPrzyciskWłącz(1);
-            Console.WriteLine(pilot);
-            pilot.WciśniętoPrzyciskWycofaj();
+            ////////////////////////////////////////////////////////////
 
-            Console.WriteLine("///////////");
+            //SuperPilotZWycofaniem pilot = new SuperPilotZWycofaniem();
 
-            pilot.WciśniętoPrzyciskWłącz(2);
-            pilot.WciśniętoPrzyciskWyłącz(2);
-            Console.WriteLine(pilot);
-            pilot.WciśniętoPrzyciskWycofaj();
-            pilot.WciśniętoPrzyciskWyłącz(2);
-            pilot.WciśniętoPrzyciskWłącz(2);
-            Console.WriteLine(pilot);
-            pilot.WciśniętoPrzyciskWycofaj();
+            //WentylatorSufitowy wentylatorSufitowy = new WentylatorSufitowy("Jadalnia");
+            //Światło światłoJadalnia = new Światło("Jadalnia");
+
+            //WłączWentylatorSufitowyŚrednioCommand wentylatorSufitowyŚrednio = new WłączWentylatorSufitowyŚrednioCommand(wentylatorSufitowy);
+            //WłączWentylatorSufitowySzybkoCommand wentylatorSufitowySzybko = new WłączWentylatorSufitowySzybkoCommand(wentylatorSufitowy);
+            //WyłączWentylatorSufitowyCommand wyłączWentylatorSufitowy = new WyłączWentylatorSufitowyCommand(wentylatorSufitowy);
+            //WłączŚwiatłoCommand włączŚwiatło = new WłączŚwiatłoCommand(światłoJadalnia);
+            //WyłączŚwiatłoCommand wyłączŚwiatło = new WyłączŚwiatłoCommand(światłoJadalnia);
+
+            //pilot.UstawPolecenie(0, wentylatorSufitowyŚrednio, wyłączWentylatorSufitowy);
+            //pilot.UstawPolecenie(1, wentylatorSufitowySzybko, wyłączWentylatorSufitowy);
+            //pilot.UstawPolecenie(2, włączŚwiatło, wyłączŚwiatło);
+
+            //pilot.WciśniętoPrzyciskWłącz(0);
+            //pilot.WciśniętoPrzyciskWyłącz(0);
+            //Console.WriteLine(pilot);
+            //pilot.WciśniętoPrzyciskWycofaj();
+
+            //pilot.WciśniętoPrzyciskWłącz(1);
+            //Console.WriteLine(pilot);
+            //pilot.WciśniętoPrzyciskWycofaj();
+
+            //Console.WriteLine("///////////");
+
+            //pilot.WciśniętoPrzyciskWłącz(2);
+            //pilot.WciśniętoPrzyciskWyłącz(2);
+            //Console.WriteLine(pilot);
+            //pilot.WciśniętoPrzyciskWycofaj();
+            //pilot.WciśniętoPrzyciskWyłącz(2);
+            //pilot.WciśniętoPrzyciskWłącz(2);
+            //Console.WriteLine(pilot);
+            //pilot.WciśniętoPrzyciskWycofaj();
 
             ////////////////////////////////////////////////////////////////////////
-            
+
             //SuperPilot pilot = new SuperPilot();
 
             //Światło jadalniaŚwiatło = new Światło("Jadalnia");
@@ -62,7 +97,7 @@ namespace Polecenie.Pilot
 
             //WłączŚwiatłoCommand jadalniaWłączŚwiatło = new WłączŚwiatłoCommand(jadalniaŚwiatło);
             //WyłączŚwiatłoCommand jadalniaWyłączŚwiatło = new WyłączŚwiatłoCommand(jadalniaŚwiatło);
-            
+
             //WłączŚwiatłoCommand kuchniaWłączŚwiatło = new WłączŚwiatłoCommand(kuchniaŚwiatło);
             //WyłączŚwiatłoCommand kuchniaWyłączŚwiatło = new WyłączŚwiatłoCommand(kuchniaŚwiatło);
 
