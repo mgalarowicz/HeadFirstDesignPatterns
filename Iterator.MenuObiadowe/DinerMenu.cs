@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Iterator.MenuObiadowe
 {
-    public class DinerMenu
+    public class DinerMenu : IMenu
     {
         private const int MAKS_LICZBA_ELEMENTOW = 6;
         int liczbaElementów = 0;

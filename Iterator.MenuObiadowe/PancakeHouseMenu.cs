@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Iterator.MenuObiadowe
 {
-    public class PancakeHouseMenu
+    public class PancakeHouseMenu : IMenu
     {
         ArrayList _pozycjeMenu;
 

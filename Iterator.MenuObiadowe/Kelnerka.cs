@@ -6,10 +6,10 @@ namespace Iterator.MenuObiadowe
 {
     public class Kelnerka
     {
-        private readonly PancakeHouseMenu _pancakeHouseMenu;
-        private readonly DinerMenu _dinerMenu;
+        private readonly IMenu _pancakeHouseMenu;
+        private readonly IMenu _dinerMenu;
 
-        public Kelnerka(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu)
+        public Kelnerka(IMenu pancakeHouseMenu, IMenu dinerMenu)
         {
             _pancakeHouseMenu = pancakeHouseMenu;
             _dinerMenu = dinerMenu;
