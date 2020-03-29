@@ -15,5 +15,24 @@ namespace Kompozyt.MenuObiadowe
 
         public void DrukujMenu() => _wszystkieMenu.Drukuj();
 
+        public void DrukujMenuWegetariańskie()
+        {
+            IIterator iterator = _wszystkieMenu.UtwórzIterator();
+
+            Console.WriteLine("\nMENU WEGETARIAŃSKIE\n-----");
+
+            while (iterator.HasNext())
+            {
+                MenuSkładnik menuSkładnik = (MenuSkładnik)iterator.Next();
+
+                try
+                {
+                    if (menuSkładnik.JestWegetariańska())
+                        menuSkładnik.Drukuj();
+                }
+                catch (InvalidOperationException) { }
+            }
+        }
+
     }
 }

@@ -49,5 +49,7 @@ namespace Kompozyt.MenuObiadowe
         {
             throw new InvalidOperationException();
         }
+
+        public abstract IIterator UtwórzIterator();
     }
 }

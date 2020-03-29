@@ -54,5 +54,14 @@ namespace Kompozyt.MenuObiadowe
             //    menuSkładnik.Drukuj();
             //}
         }
+
+        public override IIterator UtwórzIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        //public override IIterator UtwórzIterator() => new IteratorKompozytu(_menuSkładniki.Iterator());
+
+
     }
 }

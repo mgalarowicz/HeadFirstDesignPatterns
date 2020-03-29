@@ -31,5 +31,7 @@ namespace Kompozyt.MenuObiadowe
                 Console.Write("(w)");
             Console.WriteLine($", {PobierzCena()}  ---- {PobierzOpis()}");
         }
+
+        public override IIterator UtwórzIterator() => new IteratorPusty();
     }
 }
