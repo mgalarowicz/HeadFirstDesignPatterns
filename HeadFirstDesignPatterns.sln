@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethod.NapojeKofein
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iterator.MenuObiadowe", "Iterator.MenuObiadowe\Iterator.MenuObiadowe.csproj", "{B5B4069F-D8AB-43D3-970A-65FE03C6B454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kompozyt.MenuObiadowe", "Kompozyt.MenuObiadowe\Kompozyt.MenuObiadowe.csproj", "{B6DE0DD0-137C-4FD6-AF24-FB805B5A310B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kompozyt.MenuObiadowe", "Kompozyt.MenuObiadowe\Kompozyt.MenuObiadowe.csproj", "{B6DE0DD0-137C-4FD6-AF24-FB805B5A310B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stan.AutomatDoGum", "Stan.AutomatDoGum\Stan.AutomatDoGum.csproj", "{A794B64D-5F0E-4CD9-B393-ACAA2D3282D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{B6DE0DD0-137C-4FD6-AF24-FB805B5A310B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6DE0DD0-137C-4FD6-AF24-FB805B5A310B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6DE0DD0-137C-4FD6-AF24-FB805B5A310B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A794B64D-5F0E-4CD9-B393-ACAA2D3282D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A794B64D-5F0E-4CD9-B393-ACAA2D3282D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A794B64D-5F0E-4CD9-B393-ACAA2D3282D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A794B64D-5F0E-4CD9-B393-ACAA2D3282D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
