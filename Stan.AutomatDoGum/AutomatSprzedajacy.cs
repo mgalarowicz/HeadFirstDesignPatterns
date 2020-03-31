@@ -4,118 +4,76 @@ using System.Text;
 
 namespace Stan.AutomatDoGum
 {
-    public enum StanAutomatu
-    {
-        BRAK_GUM = 0,
-        NIE_MA_MONETY,
-        JEST_MONETA,
-        GUMA_SPRZEDANA
-    }
-
     public class AutomatSprzedajacy
     {
+        
+        private IStan _stanBrakGum;
+        private IStan _stanNieMaMonety;
+        private IStan _stanJestMoneta;
+        private IStan _stanGumaSprzedana;
+        private IStan _stanWygrana;
         private int _liczba;
-        private StanAutomatu stan = StanAutomatu.BRAK_GUM;
+        private IStan _stan;
 
         public AutomatSprzedajacy(int liczba)
         {
+            _stanBrakGum = new StanBrakGum(this);
+            _stanNieMaMonety = new StanNieMaMonety(this);
+            _stanJestMoneta = new StanJestMoneta(this);
+            _stanGumaSprzedana = new StanGumaSprzedana(this);
+
             _liczba = liczba;
             if (liczba > 0)
-            {
-                stan = StanAutomatu.NIE_MA_MONETY;
-            }
+                _stan = _stanNieMaMonety;
+            else
+                _stan = _stanBrakGum;
+            
         }
 
         public void WłóżMonetę()
         {
-            switch (stan)
-            {
-                case StanAutomatu.JEST_MONETA:
-                    Console.WriteLine("Nie możesz włożyć więcej niż jednej monety");
-                    break;
-                case StanAutomatu.NIE_MA_MONETY:
-                    stan = StanAutomatu.JEST_MONETA;
-                    Console.WriteLine("Moneta przyjęta");
-                    break;
-                case StanAutomatu.BRAK_GUM:
-                    Console.WriteLine("Nie możesz włożyć monety, gdy automat jest pusty");
-                    break;
-                case StanAutomatu.GUMA_SPRZEDANA:
-                    Console.WriteLine("Proszę czekać na gumę");
-                    break;
-            }
+           _stan.WłóżMonetę();
         }
 
         public void ZwróćMonetę()
         {
-            switch (stan)
-            {
-                case StanAutomatu.JEST_MONETA:
-                    Console.WriteLine("Moneta zwrócona");
-                    stan = StanAutomatu.NIE_MA_MONETY;
-                    break;
-                case StanAutomatu.NIE_MA_MONETY:
-                    Console.WriteLine("Nie włożyłeś monety");
-                    break;
-                case StanAutomatu.BRAK_GUM:
-                    Console.WriteLine("Nie włożyłeś monety");
-                    break;
-                case StanAutomatu.GUMA_SPRZEDANA:
-                    Console.WriteLine("Niestety, nie można zwrócić monety po przekręceniu gałki");
-                    break;
-            }
+            _stan.ZwróćMonetę();
         }
 
         public void PrzekręćGałkę()
         {
-            switch (stan)
-            {
-                case StanAutomatu.JEST_MONETA:
-                    Console.WriteLine("Obróciłeś gałkę...");
-                    stan = StanAutomatu.GUMA_SPRZEDANA;
-                    Wydaj();
-                    break;
-                case StanAutomatu.NIE_MA_MONETY:
-                    Console.WriteLine("Zanim przekręcisz gałkę, wrzuć monetę");
-                    break;
-                case StanAutomatu.BRAK_GUM:
-                    Console.WriteLine("Przekręciłeś gałkę ale automat jest pusty");
-                    break;
-                case StanAutomatu.GUMA_SPRZEDANA:
-                    Console.WriteLine("Nie dostaniesz gumy tylko dlatego, że przekręciłeś drugi raz!");
-                    break;
-            }
+           _stan.PrzekręćGałkę();
+           _stan.Wydaj();
         }
 
-        public void Wydaj()
+        public IStan GetStanJestMoneta() => _stanJestMoneta;
+        public IStan GetStanNieMaMonety() => _stanNieMaMonety;
+        public IStan GetStanBrakGum() => _stanBrakGum;
+        public IStan GetStanGumaSprzedana() => _stanGumaSprzedana;
+        public IStan GetStanWygrana() => _stanWygrana;
+
+        public void UstawStan(IStan stan)
         {
-            switch (stan)
+            _stan = stan;
+        }
+
+        public void ZwolnijGumę()
+        {
+            if (_liczba > 0)
             {
-                case StanAutomatu.JEST_MONETA:
-                    Console.WriteLine("Nie wydano gumy");
-                    break;
-                case StanAutomatu.NIE_MA_MONETY:
-                    Console.WriteLine("Najpierw zapłać");
-                    break;
-                case StanAutomatu.BRAK_GUM:
-                    Console.WriteLine("PNie wydano gumy");
-                    break;
-                case StanAutomatu.GUMA_SPRZEDANA:
-                    Console.WriteLine("Wypada guma");
-                    _liczba -= 1;
-                    if (_liczba == 0)
-                    {
-                        Console.WriteLine("Ups, koniec gum!");
-                        stan = StanAutomatu.BRAK_GUM;
-                    }
-                    else
-                    {
-                        stan = StanAutomatu.NIE_MA_MONETY;
-                    }
-                    break;
+                Console.WriteLine("Wypada guma...");
+                _liczba -= 1;
             }
         }
 
+        public void Napełnij(int liczba)
+        {
+            _liczba = liczba;
+            _stan = _stanNieMaMonety;
+        }
+
+        public int GetLiczba() => _liczba;
+        
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

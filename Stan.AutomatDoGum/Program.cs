@@ -16,6 +16,20 @@ namespace Stan.AutomatDoGum
             Console.WriteLine(automatSprzedajacy);
 
             automatSprzedajacy.WłóżMonetę();
+            automatSprzedajacy.PrzekręćGałkę();
+            automatSprzedajacy.WłóżMonetę();
+            automatSprzedajacy.PrzekręćGałkę();
+
+            Console.WriteLine(automatSprzedajacy);
+
+
+
+            automatSprzedajacy.WłóżMonetę();
+            automatSprzedajacy.PrzekręćGałkę();
+
+            Console.WriteLine(automatSprzedajacy);
+
+            automatSprzedajacy.WłóżMonetę();
             automatSprzedajacy.ZwróćMonetę();
             automatSprzedajacy.PrzekręćGałkę();
 
@@ -38,6 +52,7 @@ namespace Stan.AutomatDoGum
             automatSprzedajacy.PrzekręćGałkę();
 
             Console.WriteLine(automatSprzedajacy);
+
         }
     }
 }
