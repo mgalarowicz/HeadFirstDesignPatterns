@@ -15,19 +15,40 @@ namespace CompoundPattern.Kaczki
 
         private void Uruchom(AbstrakcyjnaFabrykaKaczek kaczkaFabryka, AbstrakcyjnaFabrykaGęsi gęśFabryka)
         {
-            IKwacząca dzikaKaczka = kaczkaFabryka.UtwórzDzikaKaczka();
+            
             IKwacząca płaskonosKaczka = kaczkaFabryka.UtwórzPłaskonosKaczka();
             IKwacząca wabikKaczka = kaczkaFabryka.UtwórzWabikKaczka();
             IKwacząca gumowaKaczka = kaczkaFabryka.UtwórzGumowaKaczka();
             IKwacząca gęśKaczka = gęśFabryka.UtwórzGęś();
 
-            Console.WriteLine("\nSymulator Kaczek: z wzorcem Dekorator");
+            Console.WriteLine("\nSymulator Kaczek: z wzorcami kompozyt oraz iterator - stada");
 
-            Uruchom(dzikaKaczka);
-            Uruchom(płaskonosKaczka);
-            Uruchom(wabikKaczka);
-            Uruchom(gumowaKaczka);
-            Uruchom(gęśKaczka);
+            Stado stadoKaczek = new Stado();
+
+            stadoKaczek.Dodaj(płaskonosKaczka);
+            stadoKaczek.Dodaj(wabikKaczka);
+            stadoKaczek.Dodaj(gumowaKaczka);
+            stadoKaczek.Dodaj(gęśKaczka);
+
+            Stado stadoDzikichKaczek = new Stado();
+
+            IKwacząca dzikaKaczkaJeden = kaczkaFabryka.UtwórzDzikaKaczka();
+            IKwacząca dzikaKaczkaDwa = kaczkaFabryka.UtwórzDzikaKaczka();
+            IKwacząca dzikaKaczkaTrzy = kaczkaFabryka.UtwórzDzikaKaczka();
+            IKwacząca dzikaKaczkaCztery = kaczkaFabryka.UtwórzDzikaKaczka();
+
+            stadoDzikichKaczek.Dodaj(dzikaKaczkaJeden);
+            stadoDzikichKaczek.Dodaj(dzikaKaczkaDwa);
+            stadoDzikichKaczek.Dodaj(dzikaKaczkaTrzy);
+            stadoDzikichKaczek.Dodaj(dzikaKaczkaCztery);
+
+            stadoKaczek.Dodaj(stadoDzikichKaczek);
+
+            Console.WriteLine("\nSymulator Kaczek: Symulacja całego stada");
+            Uruchom(stadoKaczek);
+
+            Console.WriteLine("\nSymulator Kaczek: Symulacja stada dzikich kaczek");
+            Uruchom(stadoDzikichKaczek);
 
             Console.WriteLine($"Kaczki kwaknęły {KwakLicznik.PobierzLiczbaKwaknięć()} razy");
         }
