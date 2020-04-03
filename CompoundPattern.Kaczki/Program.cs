@@ -12,19 +12,21 @@ namespace CompoundPattern.Kaczki
 
         private void Uruchom()
         {
-            IKwacząca dzikaKaczka = new DzikaKaczka();
-            IKwacząca płaskonosKaczka = new PłaskonosKaczka();
-            IKwacząca wabikKaczka = new WabikKaczka();
-            IKwacząca gumowaKaczka = new GumowaKaczka();
+            IKwacząca dzikaKaczka = new KwakLicznik(new DzikaKaczka());
+            IKwacząca płaskonosKaczka = new KwakLicznik(new PłaskonosKaczka());
+            IKwacząca wabikKaczka = new KwakLicznik(new WabikKaczka());
+            IKwacząca gumowaKaczka = new KwakLicznik(new GumowaKaczka());
             IKwacząca gęśKaczka = new GęśAdapter(new Gęś());
 
-            Console.WriteLine("\nSymulator Kaczek");
+            Console.WriteLine("\nSymulator Kaczek: z wzorcem Dekorator");
 
             Uruchom(dzikaKaczka);
             Uruchom(płaskonosKaczka);
             Uruchom(wabikKaczka);
             Uruchom(gumowaKaczka);
             Uruchom(gęśKaczka);
+
+            Console.WriteLine($"Kaczki kwaknęły {KwakLicznik.PobierzLiczbaKwaknięć()} razy");
         }
 
         private void Uruchom(IKwacząca kaczka)
