@@ -7,16 +7,19 @@ namespace CompoundPattern.Kaczki
         static void Main(string[] args)
         {
             Program symulatorKaczek = new Program();
-            symulatorKaczek.Uruchom();
+            AbstrakcyjnaFabrykaKaczek kaczkaFabryka = new FabrykaKaczekZLicznikiem();
+            AbstrakcyjnaFabrykaGęsi gęśFabryka = new FabrykaGęsiJakoKaczki();
+
+            symulatorKaczek.Uruchom(kaczkaFabryka, gęśFabryka);
         }
 
-        private void Uruchom()
+        private void Uruchom(AbstrakcyjnaFabrykaKaczek kaczkaFabryka, AbstrakcyjnaFabrykaGęsi gęśFabryka)
         {
-            IKwacząca dzikaKaczka = new KwakLicznik(new DzikaKaczka());
-            IKwacząca płaskonosKaczka = new KwakLicznik(new PłaskonosKaczka());
-            IKwacząca wabikKaczka = new KwakLicznik(new WabikKaczka());
-            IKwacząca gumowaKaczka = new KwakLicznik(new GumowaKaczka());
-            IKwacząca gęśKaczka = new GęśAdapter(new Gęś());
+            IKwacząca dzikaKaczka = kaczkaFabryka.UtwórzDzikaKaczka();
+            IKwacząca płaskonosKaczka = kaczkaFabryka.UtwórzPłaskonosKaczka();
+            IKwacząca wabikKaczka = kaczkaFabryka.UtwórzWabikKaczka();
+            IKwacząca gumowaKaczka = kaczkaFabryka.UtwórzGumowaKaczka();
+            IKwacząca gęśKaczka = gęśFabryka.UtwórzGęś();
 
             Console.WriteLine("\nSymulator Kaczek: z wzorcem Dekorator");
 
