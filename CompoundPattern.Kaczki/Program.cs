@@ -21,7 +21,7 @@ namespace CompoundPattern.Kaczki
             IKwacząca gumowaKaczka = kaczkaFabryka.UtwórzGumowaKaczka();
             IKwacząca gęśKaczka = gęśFabryka.UtwórzGęś();
 
-            Console.WriteLine("\nSymulator Kaczek: z wzorcami kompozyt oraz iterator - stada");
+            Console.WriteLine("\nSymulator Kaczek: z wzorcem Obserwator");
 
             Stado stadoKaczek = new Stado();
 
@@ -44,13 +44,14 @@ namespace CompoundPattern.Kaczki
 
             stadoKaczek.Dodaj(stadoDzikichKaczek);
 
+            Kwakolog kwakolog = new Kwakolog();
+            stadoKaczek.ZarejestrujObserwatora(kwakolog);
+
             Console.WriteLine("\nSymulator Kaczek: Symulacja całego stada");
             Uruchom(stadoKaczek);
 
-            Console.WriteLine("\nSymulator Kaczek: Symulacja stada dzikich kaczek");
-            Uruchom(stadoDzikichKaczek);
-
             Console.WriteLine($"Kaczki kwaknęły {KwakLicznik.PobierzLiczbaKwaknięć()} razy");
+
         }
 
         private void Uruchom(IKwacząca kaczka)

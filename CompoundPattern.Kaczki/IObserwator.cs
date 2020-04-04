@@ -4,8 +4,8 @@ using System.Text;
 
 namespace CompoundPattern.Kaczki
 {
-    public interface IKwacząca : IKwakObserwowany
+    public interface IObserwator
     {
-        void Kwacz();
+        void Aktualizuj(IKwakObserwowany kaczka);
     }
 }

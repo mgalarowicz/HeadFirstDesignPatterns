@@ -24,5 +24,19 @@ namespace CompoundPattern.Kaczki
                 ptak.Kwacz();
             }
         }
+
+        public void ZarejestrujObserwatora(IObserwator obserwator)
+        {
+            IIterator iterator = new PtakiIterator(_ptaki);
+
+            while (iterator.HasNext())
+            {
+                IKwacząca ptak = (IKwacząca)iterator.Next();
+                ptak.ZarejestrujObserwatora(obserwator);
+            }
+        }
+
+        public void PowiadomObserwatorów() { }
+
     }
 }

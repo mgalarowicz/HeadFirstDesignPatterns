@@ -21,5 +21,15 @@ namespace CompoundPattern.Kaczki
         }
 
         public static int PobierzLiczbaKwaknięć() => liczbaKwaknięć;
+        
+        public void ZarejestrujObserwatora(IObserwator obserwator)
+        {
+            _kaczka.ZarejestrujObserwatora(obserwator);
+        }
+
+        public void PowiadomObserwatorów()
+        {
+            _kaczka.PowiadomObserwatorów();
+        }
     }
 }
