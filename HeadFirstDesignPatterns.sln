@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Obserwator.StacjaMeteo", "O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dekorator.StarCafe", "Dekorator.StarCafe\Dekorator.StarCafe.csproj", "{A2E422D0-3315-48F4-AF0F-CD6764D3E4A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodaFabrykująca.Pizzeria", "Fabryka.Pizzeria\MetodaFabrykująca.Pizzeria.csproj", "{FC07C7DE-0C09-404E-B1B0-D94F36124E4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodaFabrykująca.Pizzeria", "MetodaFabrykująca.Pizzeria\MetodaFabrykująca.Pizzeria.csproj", "{FC07C7DE-0C09-404E-B1B0-D94F36124E4D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singleton.CzekoladowyKocioł", "Singleton.CzekoladowyKocioł\Singleton.CzekoladowyKocioł.csproj", "{67866067-6D23-4D64-9025-31BB313B7CA5}"
 EndProject
@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy.BookParser", "Proxy.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridge.Spotify", "Bridge.Spotify\Bridge.Spotify.csproj", "{681599D8-8737-4591-82CC-38252D8AFC77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabrykaAbstrakcyjna.Pizzeria", "FabrykaAbstrakcyjna.Pizzeria\FabrykaAbstrakcyjna.Pizzeria.csproj", "{ED84D915-0C37-4E80-AC0A-4CC4B5322E53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabrykaAbstrakcyjna.Pizzeria", "FabrykaAbstrakcyjna.Pizzeria\FabrykaAbstrakcyjna.Pizzeria.csproj", "{ED84D915-0C37-4E80-AC0A-4CC4B5322E53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.FromUdemy", "Builder.FromUdemy\Builder.FromUdemy.csproj", "{E431F7D9-E93D-4393-BFD4-4ED2CDE607D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{ED84D915-0C37-4E80-AC0A-4CC4B5322E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED84D915-0C37-4E80-AC0A-4CC4B5322E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED84D915-0C37-4E80-AC0A-4CC4B5322E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E431F7D9-E93D-4393-BFD4-4ED2CDE607D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E431F7D9-E93D-4393-BFD4-4ED2CDE607D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E431F7D9-E93D-4393-BFD4-4ED2CDE607D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E431F7D9-E93D-4393-BFD4-4ED2CDE607D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
